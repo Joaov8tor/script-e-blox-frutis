@@ -1,0 +1,154 @@
+local ScreenGui = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local ToggleButton = Instance.new("TextButton")
+local Title = Instance.new("TextLabel")
+local Tabs = Instance.new("Frame")
+local CombatButton = Instance.new("TextButton")
+local ExploreButton = Instance.new("TextButton")
+local CharacterButton = Instance.new("TextButton")
+local FeaturesFrame = Instance.new("Frame")
+local CombatFrame = Instance.new("Frame")
+local ExploreFrame = Instance.new("Frame")
+local CharacterFrame = Instance.new("Frame")
+
+-- GUI Setup
+ScreenGui.Name = "BloxFruitsHub"
+ScreenGui.Parent = game.CoreGui
+
+-- Toggle Button
+ToggleButton.Name = "ToggleButton"
+ToggleButton.Parent = ScreenGui
+ToggleButton.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+ToggleButton.Size = UDim2.new(0, 100, 0, 30)
+ToggleButton.Position = UDim2.new(0.01, 0, 0.01, 0)
+ToggleButton.Text = "Open Menu"
+ToggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleButton.Font = Enum.Font.SourceSansBold
+ToggleButton.TextScaled = true
+
+-- Main Frame
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = ScreenGui
+MainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+MainFrame.Position = UDim2.new(0.2, 0, 0.2, 0)
+MainFrame.Size = UDim2.new(0, 400, 0, 300)
+MainFrame.Visible = false -- Start Hidden
+
+-- Toggle Functionality
+ToggleButton.MouseButton1Click:Connect(function()
+    MainFrame.Visible = not MainFrame.Visible
+    if MainFrame.Visible then
+        ToggleButton.Text = "Close Menu"
+    else
+        ToggleButton.Text = "Open Menu"
+    end
+end)
+
+-- Title
+Title.Name = "Title"
+Title.Parent = MainFrame
+Title.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Title.Size = UDim2.new(1, 0, 0.15, 0)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "Blox Fruits Hub"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+
+-- Tabs
+Tabs.Name = "Tabs"
+Tabs.Parent = MainFrame
+Tabs.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Tabs.Size = UDim2.new(0.25, 0, 0.85, 0)
+Tabs.Position = UDim2.new(0, 0, 0.15, 0)
+
+CombatButton.Name = "CombatButton"
+CombatButton.Parent = Tabs
+CombatButton.Size = UDim2.new(1, 0, 0.2, 0)
+CombatButton.Text = "Combat"
+CombatButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+CombatButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CombatButton.MouseButton1Click:Connect(function()
+    CombatFrame.Visible = true
+    ExploreFrame.Visible = false
+    CharacterFrame.Visible = false
+end)
+
+ExploreButton.Name = "ExploreButton"
+ExploreButton.Parent = Tabs
+ExploreButton.Size = UDim2.new(1, 0, 0.2, 0)
+ExploreButton.Position = UDim2.new(0, 0, 0.2, 0)
+ExploreButton.Text = "Explore"
+ExploreButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+ExploreButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ExploreButton.MouseButton1Click:Connect(function()
+    CombatFrame.Visible = false
+    ExploreFrame.Visible = true
+    CharacterFrame.Visible = false
+end)
+
+CharacterButton.Name = "CharacterButton"
+CharacterButton.Parent = Tabs
+CharacterButton.Size = UDim2.new(1, 0, 0.2, 0)
+CharacterButton.Position = UDim2.new(0, 0, 0.4, 0)
+CharacterButton.Text = "Character"
+CharacterButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+CharacterButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CharacterButton.MouseButton1Click:Connect(function()
+    CombatFrame.Visible = false
+    ExploreFrame.Visible = false
+    CharacterFrame.Visible = true
+end)
+
+FeaturesFrame.Name = "FeaturesFrame"
+FeaturesFrame.Parent = MainFrame
+FeaturesFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+FeaturesFrame.Size = UDim2.new(0.75, 0, 0.85, 0)
+FeaturesFrame.Position = UDim2.new(0.25, 0, 0.15, 0)
+
+CombatFrame.Name = "CombatFrame"
+CombatFrame.Parent = FeaturesFrame
+CombatFrame.Size = UDim2.new(1, 0, 1, 0)
+CombatFrame.Visible = false
+
+local AutoFarmButton = Instance.new("TextButton", CombatFrame)
+AutoFarmButton.Size = UDim2.new(0.8, 0, 0.2, 0)
+AutoFarmButton.Position = UDim2.new(0.1, 0, 0.1, 0)
+AutoFarmButton.Text = "Auto Farm"
+AutoFarmButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+AutoFarmButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+AutoFarmButton.MouseButton1Click:Connect(function()
+    print("Auto Farm Activated")
+    -- Auto Farm code here
+end)
+
+ExploreFrame.Name = "ExploreFrame"
+ExploreFrame.Parent = FeaturesFrame
+ExploreFrame.Size = UDim2.new(1, 0, 1, 0)
+ExploreFrame.Visible = false
+
+local TeleportIslandButton = Instance.new("TextButton", ExploreFrame)
+TeleportIslandButton.Size = UDim2.new(0.8, 0, 0.2, 0)
+TeleportIslandButton.Position = UDim2.new(0.1, 0, 0.1, 0)
+TeleportIslandButton.Text = "Teleport to Island"
+TeleportIslandButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+TeleportIslandButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TeleportIslandButton.MouseButton1Click:Connect(function()
+    print("Teleport Activated")
+    -- Teleport code here
+end)
+
+CharacterFrame.Name = "CharacterFrame"
+CharacterFrame.Parent = FeaturesFrame
+CharacterFrame.Size = UDim2.new(1, 0, 1, 0)
+CharacterFrame.Visible = false
+
+local SpeedBoostButton = Instance.new("TextButton", CharacterFrame)
+SpeedBoostButton.Size = UDim2.new(0.8, 0, 0.2, 0)
+SpeedBoostButton.Position = UDim2.new(0.1, 0, 0.1, 0)
+SpeedBoostButton.Text = "Speed Boost"
+SpeedBoostButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+SpeedBoostButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpeedBoostButton.MouseButton1Click:Connect(function()
+    print("Speed Boost Activated")
+    -- Speed boost code here
+end)
